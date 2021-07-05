@@ -20,11 +20,14 @@ import javax.swing.SwingConstants;
 
 public class TelaPrincipal implements ActionListener{
 	
+	/*
 	static JTextField FIND_TEXT;
 	static JFrame TELA_PRINCIPAL;
 	static JButton FIND_BUTTON;
 	static JLabel LABEL_TEST;
+	*/
 	
+	/*
 	public void actionPerformed(ActionEvent e)
 	{
 		String s = e.getActionCommand();
@@ -37,8 +40,14 @@ public class TelaPrincipal implements ActionListener{
 			FIND_TEXT.setText("  ");
 		}
 	}
+	*/
 	
-	protected void criarTelaPrincipalPrincipal() {
+	JTextField findText;
+	JButton findButton;
+	JLabel promptLabel,contentsLabel;
+	
+	
+	void criarTelaPrincipalPrincipal() {
 		
 		int jTelaPrincipalWidth = 720, widthPanel = 700;
 		int jTelaPrincipalHight = 1080, heightPanel = 100;
@@ -50,20 +59,20 @@ public class TelaPrincipal implements ActionListener{
 		int alturaProximoPanel = 0;
 
 
-		TELA_PRINCIPAL = new JFrame();
-		LABEL_TEST = new JLabel("nothing entered");
+		JFrame telaPrincipalFrame = new JFrame();
+		JLabel LABEL_TEST = new JLabel("nothing entered");
 		
 		
-		TELA_PRINCIPAL.setTitle("Loja de Eletrônica");
+		telaPrincipalFrame.setTitle("Loja de Eletrônica");
 
 		//about size, color and visibility of window
-		TELA_PRINCIPAL.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		TELA_PRINCIPAL.setResizable(false);
-		TELA_PRINCIPAL.setLayout(null);
-		TELA_PRINCIPAL.setSize(jTelaPrincipalWidth,jTelaPrincipalHight);
+		telaPrincipalFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaPrincipalFrame.setResizable(false);
+		telaPrincipalFrame.setLayout(null);
+		telaPrincipalFrame.setSize(jTelaPrincipalWidth,jTelaPrincipalHight);
 
-		TELA_PRINCIPAL.getContentPane().setBackground(Color.decode("#000000"));
-		TELA_PRINCIPAL.setLocationRelativeTo(null);
+		telaPrincipalFrame.getContentPane().setBackground(Color.decode("#000000"));
+		telaPrincipalFrame.setLocationRelativeTo(null);
 		
 		
 		
@@ -114,18 +123,19 @@ public class TelaPrincipal implements ActionListener{
 		
 		/* Find button */
 		
-		Icon findIcon = new ImageIcon("submit", "images/IconeBusca.png");
-		FIND_BUTTON = new JButton(findIcon);
-		FIND_BUTTON.setBackground(Color.gray);
-		FIND_BUTTON.setBounds(610, 5, 90, 90);
+		Icon findIcon = new ImageIcon("images/IconeBusca.png");
+		findButton = new JButton("reverse");
+		findButton.setBackground(Color.gray);
+		findButton.setBounds(610, 5, 90, 90);
 		
-		TelaPrincipal obje = new TelaPrincipal();
+		//TelaPrincipal obje = new TelaPrincipal();
 
-		FIND_BUTTON.addActionListener(obje);
 		
-		FIND_TEXT = new JTextField("enter text", 16);
+		findText = new JTextField(10);
+		findText.setActionCommand("myTF");
 		
-
+		findText.addActionListener(this);
+		findButton.addActionListener(this);
 
 		
 
@@ -260,57 +270,79 @@ public class TelaPrincipal implements ActionListener{
 		*/
 		
 		//Panel Find		
-		TELA_PRINCIPAL.add(IconeMenuPanel);
+		telaPrincipalFrame.add(IconeMenuPanel);
 		IconeMenuPanel.setVisible(true);
 		
-		TELA_PRINCIPAL.add(menuButton);
+		telaPrincipalFrame.add(menuButton);
 		menuButton.setVisible(true);
 		
 		findLabel.setLabelFor(findText);
 		IconeFindPanel.add(findLabel);
-		TELA_PRINCIPAL.add(IconeFindPanel);
+		telaPrincipalFrame.add(IconeFindPanel);
 		IconeFindPanel.add(findText,BorderLayout.CENTER);
 		
 		IconeFindPanel.setVisible(true);
 	
 		
-		TELA_PRINCIPAL.add(FIND_BUTTON);
-		FIND_BUTTON.setVisible(true);
+		telaPrincipalFrame.add(findButton);
+		findButton.setVisible(true);
 		
 		//nomeProduto
 		nomeProdutoPanel.add(nomeProdutoLabel);
-		TELA_PRINCIPAL.add(nomeProdutoPanel);
+		telaPrincipalFrame.add(nomeProdutoPanel);
 		nomeProdutoPanel.setVisible(true);
 		
 		//preco Produto
 		precoProdutoPanel.add(precoProdutoLabel);
-		TELA_PRINCIPAL.add(precoProdutoPanel);
+		telaPrincipalFrame.add(precoProdutoPanel);
 		precoProdutoPanel.setVisible(true);
 		
 		//caracteristica importante Produto
 		caracteristicaImportante00ProdutoPanel.add(caracteristicaImportante00ProdutoLabel);
-		TELA_PRINCIPAL.add(caracteristicaImportante00ProdutoPanel);
+		telaPrincipalFrame.add(caracteristicaImportante00ProdutoPanel);
 		caracteristicaImportante00ProdutoPanel.setVisible(true);
 		
 		//preco Produto
 		fotoProdutoPanel.add(fotoProdutoLabel);
-		TELA_PRINCIPAL.add(fotoProdutoPanel);
+		telaPrincipalFrame.add(fotoProdutoPanel);
 		fotoProdutoPanel.setVisible(true);
 		
 		//Find caracteristica especifica Produto
 		FindCaracteristicaEspecificaPanel.add(FindCaracteristicaEspecificaLabel);
-		TELA_PRINCIPAL.add(FindCaracteristicaEspecificaPanel);
+		telaPrincipalFrame.add(FindCaracteristicaEspecificaPanel);
 		FindCaracteristicaEspecificaPanel.setVisible(true);
 		
 		//caracteristicas gerais Produto
 		EspecificacoesGeraisPanel.add(EspecificacoesGeraisLabel);
-		TELA_PRINCIPAL.add(EspecificacoesGeraisPanel);
+		telaPrincipalFrame.add(EspecificacoesGeraisPanel);
 		EspecificacoesGeraisPanel.setVisible(true);
 		
 		
-		TELA_PRINCIPAL.show();
-		TELA_PRINCIPAL.setVisible(true);
+		//telaPrincipalFrame.show();
+		telaPrincipalFrame.setVisible(true);
 		
+	}
+
+	public void actionPerformed(ActionEvent ae) {
+		// TODO Auto-generated method stub
+		if(ae.getActionCommand().equals("reverse")) {
+			String orgStr = findText.getText();
+			String resStr = "";
+			
+			for(int i=orgStr.length();i >=0;i--) {
+				resStr += orgStr.charAt(i);
+			}
+			
+			findText.setText(resStr);
+			System.out.println("botão apertado com findText = " +
+								resStr);
+			
+		}else {
+			contentsLabel.setText("you pressed ENTER. text is: " + 
+					findText.getText());;
+		System.out.println("botão apertado com findText = " +
+							findText.getText());
+		}
 	}
 
 
