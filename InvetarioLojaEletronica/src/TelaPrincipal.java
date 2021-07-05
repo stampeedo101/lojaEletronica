@@ -1,11 +1,14 @@
 package arquivoLojaEletronica;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 
 public class TelaPrincipal {
@@ -53,6 +56,45 @@ public class TelaPrincipal {
 		//kilometragemLabel.setHorizontalAlignment(JLabel.CENTER);	   
 
 		/*BUSCA PANEL*/
+		
+		
+		
+		/* icone Menu */
+		//w=103px h=90px
+		JPanel IconeMenuPanel = new JPanel();		
+		IconeMenuPanel.setBackground(Color.decode("#39ffe5"));
+		IconeMenuPanel.setBounds(10, 0, 105, alturaBuscaPincipal); 
+
+		ImageIcon IconeMenu = new ImageIcon("images/IconeLojaEletronica.png");
+		
+		JLabel IconeMenuLabel = new JLabel(IconeMenu, SwingConstants.RIGHT);
+		
+		
+		//IconeMenuLabel.setText("BUSCA");
+		IconeMenuLabel.setForeground(Color.white);
+		IconeMenuLabel.setFont(new Font("Monospace",Font.PLAIN,90));
+		//IconeMenuLabel.setVerticalAlignment(JLabel.CENTER);
+		IconeMenuLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		IconeMenuLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		
+		/* icone Menu */
+		//w = h = 90 px
+		JPanel IconeBuscaPanel = new JPanel();		
+		IconeBuscaPanel.setBackground(Color.decode("#39ffe5"));
+		IconeBuscaPanel.setBounds(120, 0, 700-110, alturaBuscaPincipal); 
+
+		ImageIcon IconeBusca = new ImageIcon("images/IconeBusca.png");
+		JLabel IconeBuscaLabel = new JLabel(IconeBusca, SwingConstants.LEFT);
+		//IconeBuscaLabel.setBounds(520, 0, 90, 90);
+		
+		//IconeMenuLabel.setText("BUSCA");
+		IconeBuscaLabel.setForeground(Color.white);
+		//IconeBuscaLabel.setFont(new Font("Monospace",Font.PLAIN,90));
+
+		
+		/* busca button */
+		
+		/* busca button */
 		
 		
 		
@@ -174,11 +216,21 @@ public class TelaPrincipal {
 		/* ESPECIFICACOES */
 		
 		
-		
+		/*
 		//BUSCA
 		BuscaPanel.add(BuscaLabel);
 		TelaPrincipal.add(BuscaPanel);
 		BuscaPanel.setVisible(true);
+		*/
+		
+		//Panel busca
+		IconeMenuPanel.add(IconeMenuLabel);
+		TelaPrincipal.add(IconeMenuPanel);
+		IconeMenuPanel.setVisible(true);
+		
+		IconeBuscaPanel.add(IconeBuscaLabel);
+		TelaPrincipal.add(IconeBuscaPanel);
+		IconeBuscaPanel.setVisible(true);
 		
 		//nomeProduto
 		nomeProdutoPanel.add(nomeProdutoLabel);
