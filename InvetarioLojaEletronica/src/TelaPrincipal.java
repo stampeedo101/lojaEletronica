@@ -1,13 +1,20 @@
 package arquivoLojaEletronica;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 
@@ -20,7 +27,7 @@ public class TelaPrincipal {
 		
 		int fotoLargura = 600, fotoAltura = 400;
 		
-		byte espaco = 10, espacoC = 100, alturaBuscaPincipal = 100, alturaNomeProduto = 50, alturaCategoriaImportante = 70, alturaPreco = 60;
+		byte espaco = 10, espacoC = 100, alturaFindPincipal = 100, alturaNomeProduto = 50, alturaCategoriaImportante = 70, alturaPreco = 60;
 		
 		int alturaProximoPanel = 0;
 
@@ -40,22 +47,9 @@ public class TelaPrincipal {
 		
 		
 		
-		/*BUSCA PANEL*/
+		/*Find PANEL*/
 
-		JPanel BuscaPanel = new JPanel();		
-		BuscaPanel.setBackground(Color.decode("#39ffe5"));
-		BuscaPanel.setBounds(10, 0, widthPanel, alturaBuscaPincipal); 
 
-		
-		JLabel BuscaLabel = new JLabel();
-		
-		BuscaLabel.setText("BUSCA");
-		BuscaLabel.setForeground(Color.white);
-		BuscaLabel.setFont(new Font("Monospace",Font.PLAIN,90));
-		//kilometragemLabel.setVerticalAlignment((JLabel.CENTER);
-		//kilometragemLabel.setHorizontalAlignment(JLabel.CENTER);	   
-
-		/*BUSCA PANEL*/
 		
 		
 		
@@ -63,46 +57,72 @@ public class TelaPrincipal {
 		//w=103px h=90px
 		JPanel IconeMenuPanel = new JPanel();		
 		IconeMenuPanel.setBackground(Color.decode("#39ffe5"));
-		IconeMenuPanel.setBounds(10, 0, 105, alturaBuscaPincipal); 
+		IconeMenuPanel.setBounds(10, 0, 105, alturaFindPincipal); 
 
-		ImageIcon IconeMenu = new ImageIcon("images/IconeLojaEletronica.png");
-		
-		JLabel IconeMenuLabel = new JLabel(IconeMenu, SwingConstants.RIGHT);
-		
-		
-		//IconeMenuLabel.setText("BUSCA");
-		IconeMenuLabel.setForeground(Color.white);
-		IconeMenuLabel.setFont(new Font("Monospace",Font.PLAIN,90));
-		//IconeMenuLabel.setVerticalAlignment(JLabel.CENTER);
-		IconeMenuLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		IconeMenuLabel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		
-		/* icone Menu */
-		//w = h = 90 px
-		JPanel IconeBuscaPanel = new JPanel();		
-		IconeBuscaPanel.setBackground(Color.decode("#39ffe5"));
-		IconeBuscaPanel.setBounds(120, 0, 700-110, alturaBuscaPincipal); 
+		/* menu icon Menu */
+		//w=103px h=90px
+		Icon menuIcon = new ImageIcon("images/IconeLojaEletronica.png");
 
-		ImageIcon IconeBusca = new ImageIcon("images/IconeBusca.png");
-		JLabel IconeBuscaLabel = new JLabel(IconeBusca, SwingConstants.LEFT);
-		//IconeBuscaLabel.setBounds(520, 0, 90, 90);
-		
-		//IconeMenuLabel.setText("BUSCA");
-		IconeBuscaLabel.setForeground(Color.white);
-		//IconeBuscaLabel.setFont(new Font("Monospace",Font.PLAIN,90));
+		JButton menuButton = new JButton(menuIcon);
 
+		menuButton.setBackground(Color.GRAY);		
+		menuButton.setBounds(10, 5, 103, 90);
 		
-		/* busca button */
 		
-		/* busca button */
+		/* find panel */
 		
+		JPanel IconeFindPanel = new JPanel(new BorderLayout());		
+		IconeFindPanel.setBackground(Color.decode("#39ffe5"));
+		IconeFindPanel.setBounds(120, 0, 700-110-110, alturaFindPincipal); 
+
+		/* find label */
+		
+		JLabel findLabel = new JLabel();
+		findLabel.setBounds(120, 0, 700-110-120, alturaFindPincipal-10);
+		//findLabel.setFont(new Font("Monospace",Font.PLAIN,40));
+		
+		JTextField findText = new JTextField();
+		findText.setFont(new Font("Monospace", Font.PLAIN,40));
+		//textField.setBounds(120, 0, 700-110-120, alturaFindPincipal-10);
+		findLabel.setDisplayedMnemonic(KeyEvent.VK_N);
+		
+		String x = findText.getText();
+		
+		System.out.println(x);
+		
+		/* Find button */
+
+		Icon findIcon = new ImageIcon("images/IconeBusca.png");
+
+		JButton findButton = new JButton(findIcon);
+
+		findButton.setBackground(Color.GRAY);
+		//findButton.setForeground(Color.decode("#002232"));
+		findButton.setBounds(610, 5, 90, 90);
+		
+		findButton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				//String a = findText.getText();
+
+				System.out.println("" + x);
+				
+			}
+		});
+		
+
+
+		/* Find button */
+
 		
 		
 		/*nomeProduto PANEL*/
 
 		JPanel nomeProdutoPanel = new JPanel();		
 		nomeProdutoPanel.setBackground(Color.decode("#219dd4"));
-		nomeProdutoPanel.setBounds(10, (alturaBuscaPincipal + espaco), widthPanel, alturaNomeProduto); 
+		nomeProdutoPanel.setBounds(10, (alturaFindPincipal + espaco), widthPanel, alturaNomeProduto); 
 
 		
 		JLabel nomeProdutoLabel = new JLabel();
@@ -122,7 +142,7 @@ public class TelaPrincipal {
 		JPanel fotoProdutoPanel = new JPanel();		
 		fotoProdutoPanel.setBackground(Color.decode("#312a00"));
 		fotoProdutoPanel.setBounds((jTelaPrincipalWidth-fotoLargura)/2 , 
-				(alturaBuscaPincipal + alturaNomeProduto + 3*espaco), 
+				(alturaFindPincipal + alturaNomeProduto + 3*espaco), 
 				fotoLargura, 
 				fotoAltura); 
 
@@ -142,7 +162,7 @@ public class TelaPrincipal {
 		JPanel caracteristicaImportante00ProdutoPanel = new JPanel();		
 		caracteristicaImportante00ProdutoPanel.setBackground(Color.decode("#03de00"));
 		caracteristicaImportante00ProdutoPanel.setBounds(10,
-				alturaBuscaPincipal + alturaNomeProduto + fotoAltura + 4*espaco,
+				alturaFindPincipal + alturaNomeProduto + fotoAltura + 4*espaco,
 				widthPanel,
 				alturaCategoriaImportante); 
 
@@ -162,7 +182,7 @@ public class TelaPrincipal {
 		JPanel precoProdutoPanel = new JPanel();		
 		precoProdutoPanel.setBackground(Color.decode("#f45a00"));
 		precoProdutoPanel.setBounds(10,
-				alturaBuscaPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + 5*espaco,
+				alturaFindPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + 5*espaco,
 				widthPanel,
 				alturaPreco); 
 
@@ -177,23 +197,23 @@ public class TelaPrincipal {
 		
 		
 		
-		/* busca caracteristica especifica */
+		/* Find caracteristica especifica */
 		
-		JPanel buscaCaracteristicaEspecificaPanel = new JPanel();		
-		buscaCaracteristicaEspecificaPanel.setBackground(Color.decode("#00f4d4"));
-		buscaCaracteristicaEspecificaPanel.setBounds(10,
-				alturaBuscaPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + alturaPreco + 6*espaco,
+		JPanel FindCaracteristicaEspecificaPanel = new JPanel();		
+		FindCaracteristicaEspecificaPanel.setBackground(Color.decode("#00f4d4"));
+		FindCaracteristicaEspecificaPanel.setBounds(10,
+				alturaFindPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + alturaPreco + 6*espaco,
 				widthPanel,
 				alturaPreco); 
 
 		
-		JLabel buscaCaracteristicaEspecificaLabel = new JLabel();
+		JLabel FindCaracteristicaEspecificaLabel = new JLabel();
 		
-		buscaCaracteristicaEspecificaLabel.setText("Busca caracteristica Especifíca");
-		buscaCaracteristicaEspecificaLabel.setForeground(Color.white);
-		buscaCaracteristicaEspecificaLabel.setFont(new Font("Monospace",Font.PLAIN,alturaPreco-20));	
+		FindCaracteristicaEspecificaLabel.setText("Find caracteristica Especifíca");
+		FindCaracteristicaEspecificaLabel.setForeground(Color.white);
+		FindCaracteristicaEspecificaLabel.setFont(new Font("Monospace",Font.PLAIN,alturaPreco-20));	
 		
-		/* busca caracteristica especifica */
+		/* Find caracteristica especifica */
 		
 		
 		
@@ -202,7 +222,7 @@ public class TelaPrincipal {
 		JPanel EspecificacoesGeraisPanel = new JPanel();		
 		EspecificacoesGeraisPanel.setBackground(Color.decode("#00d7f4"));
 		EspecificacoesGeraisPanel.setBounds(10,
-				alturaBuscaPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + 2*alturaPreco + 6*espaco,
+				alturaFindPincipal + alturaNomeProduto + fotoAltura + alturaCategoriaImportante + 2*alturaPreco + 6*espaco,
 				widthPanel,
 				alturaPreco); 
 
@@ -217,20 +237,29 @@ public class TelaPrincipal {
 		
 		
 		/*
-		//BUSCA
-		BuscaPanel.add(BuscaLabel);
-		TelaPrincipal.add(BuscaPanel);
-		BuscaPanel.setVisible(true);
+		//Find
+		FindPanel.add(FindLabel);
+		TelaPrincipal.add(FindPanel);
+		FindPanel.setVisible(true);
 		*/
 		
-		//Panel busca
-		IconeMenuPanel.add(IconeMenuLabel);
+		//Panel Find		
 		TelaPrincipal.add(IconeMenuPanel);
 		IconeMenuPanel.setVisible(true);
 		
-		IconeBuscaPanel.add(IconeBuscaLabel);
-		TelaPrincipal.add(IconeBuscaPanel);
-		IconeBuscaPanel.setVisible(true);
+		TelaPrincipal.add(menuButton);
+		menuButton.setVisible(true);
+		
+		findLabel.setLabelFor(findText);
+		IconeFindPanel.add(findLabel);
+		TelaPrincipal.add(IconeFindPanel);
+		IconeFindPanel.add(findText,BorderLayout.CENTER);
+		
+		IconeFindPanel.setVisible(true);
+	
+		
+		TelaPrincipal.add(findButton);
+		findButton.setVisible(true);
 		
 		//nomeProduto
 		nomeProdutoPanel.add(nomeProdutoLabel);
@@ -252,10 +281,10 @@ public class TelaPrincipal {
 		TelaPrincipal.add(fotoProdutoPanel);
 		fotoProdutoPanel.setVisible(true);
 		
-		//busca caracteristica especifica Produto
-		buscaCaracteristicaEspecificaPanel.add(buscaCaracteristicaEspecificaLabel);
-		TelaPrincipal.add(buscaCaracteristicaEspecificaPanel);
-		buscaCaracteristicaEspecificaPanel.setVisible(true);
+		//Find caracteristica especifica Produto
+		FindCaracteristicaEspecificaPanel.add(FindCaracteristicaEspecificaLabel);
+		TelaPrincipal.add(FindCaracteristicaEspecificaPanel);
+		FindCaracteristicaEspecificaPanel.setVisible(true);
 		
 		//caracteristicas gerais Produto
 		EspecificacoesGeraisPanel.add(EspecificacoesGeraisLabel);
