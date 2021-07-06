@@ -75,20 +75,14 @@ public class TelaPrincipal implements ActionListener{
 		telaPrincipalFrame.setLocationRelativeTo(null);
 		
 		
-		
-		/*Find PANEL*/
-
-
-		
-		
-		
+					
 		/* icone Menu */
 		//w=103px h=90px
 		JPanel IconeMenuPanel = new JPanel();		
 		IconeMenuPanel.setBackground(Color.decode("#39ffe5"));
 		IconeMenuPanel.setBounds(10, 0, 105, alturaFindPincipal); 
 
-		/* menu icon Menu */
+		
 		//w=103px h=90px
 		
 		Icon menuIcon = new ImageIcon("images/IconeLojaEletronica.png");
@@ -97,6 +91,8 @@ public class TelaPrincipal implements ActionListener{
 
 		menuButton.setBackground(Color.GRAY);		
 		menuButton.setBounds(10, 5, 103, 90);
+		
+		/* menu icon Menu */
 		
 		
 		
@@ -117,10 +113,10 @@ public class TelaPrincipal implements ActionListener{
 		//textField.setBounds(120, 0, 700-110-120, alturaFindPincipal-10);
 		findLabel.setDisplayedMnemonic(KeyEvent.VK_N);
 		
-		String x = findText.getText();
+		/* find panel */
 		
-		System.out.println(x);
 		
+
 		/* Find button */
 		
 		Icon findIcon = new ImageIcon("images/IconeBusca.png");
