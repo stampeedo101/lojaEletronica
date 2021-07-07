@@ -2,7 +2,10 @@ package arquivoLojaEletronica;
 
 public class FerrosSolda {
 	
+	
+
 	public FerrosSolda(
+			String tipoProduto,
 			String marca, 
 			double preco, 
 			int potencia, 
@@ -16,6 +19,7 @@ public class FerrosSolda {
 			String informacoes
 			) {
 		
+		this.tipoProduto = tipoProduto;
 		this.marca = marca;
 		this.preco = preco;
 		this.potencia = potencia;
@@ -29,6 +33,14 @@ public class FerrosSolda {
 		this.informacoes = informacoes;		
 		
 	}
+	
+	public String getTipoProduto() {
+		return marca;
+	}
+	public void setTipoProduto(String tipoProduto) {
+		this.tipoProduto = tipoProduto;
+	}
+	
 	
 	public String getMarca() {
 		return marca;
@@ -97,7 +109,7 @@ public class FerrosSolda {
 		this.controleDeTemperatura = controleDeTemperatura;
 	}
 
-
+	private String tipoProduto;
 	private String marca;
 	private String LocalProduzido;
 	private String informacoes;
@@ -109,6 +121,7 @@ public class FerrosSolda {
 	private int referencia; 
 	private int codigoBarras;
 	private boolean controleDeTemperatura;
+	
 	public String toString() {
 		return "FerrosSolda [marca=" + marca + ", LocalProduzido=" + LocalProduzido + ", informacoes=" + informacoes
 				+ ", preco=" + preco + ", potencia=" + potencia + ", tensao=" + tensao + ", temperaturaMaxima="
