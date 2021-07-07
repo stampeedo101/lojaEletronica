@@ -310,6 +310,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				fotoProdutoLabel.setText("foto vonder");
 				caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
 				precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
+				System.out.println("button used");
 				
 			}
 		/*
@@ -330,8 +331,10 @@ public class ComputandoArquivosLoja implements ActionListener{
 					fotoProdutoLabel.setText("foto vonder");
 					caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
 					precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
+					System.out.println("enter clicado");
 					
 				}
+				findText.setText(resStr);
 			}
 		}
 		
