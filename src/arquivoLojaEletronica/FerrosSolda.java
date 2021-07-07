@@ -2,7 +2,13 @@ package arquivoLojaEletronica;
 
 public class FerrosSolda {
 	
-	
+	private String retornaControleTemperatura(boolean controle) {
+		if(controle) {
+			return "sim";
+		}else {
+			return "não";
+		}
+	}
 
 	public FerrosSolda(
 			String tipoProduto,
@@ -123,10 +129,10 @@ public class FerrosSolda {
 	private boolean controleDeTemperatura;
 	
 	public String toString() {
-		return "FerrosSolda [marca=" + marca + ", LocalProduzido=" + LocalProduzido + ", informacoes=" + informacoes
-				+ ", preco=" + preco + ", potencia=" + potencia + ", tensao=" + tensao + ", temperaturaMaxima="
-				+ temperaturaMaxima + ", garantia=" + garantia + ", referencia=" + referencia + ", codigoBarras="
-				+ codigoBarras + ", controleDeTemperatura=" + controleDeTemperatura + "]";
+		return "Ferro de Solda " + marca + "\nLocal Produzido: " + LocalProduzido + "\nInformacoes: " + informacoes
+				+ "\nPreço: R$ " + preco + "\nPotência: " + potencia + " W\nTensão: " + tensao + " V\nTemperatura Máxima: "
+				+ temperaturaMaxima + " °C\nGarantia: " + garantia + " meses\nReferência: " + referencia + "\nCódigo de Barras: "
+				+ codigoBarras + "\nControle de Temperatura: " + retornaControleTemperatura(controleDeTemperatura);
 	}
 	
 	

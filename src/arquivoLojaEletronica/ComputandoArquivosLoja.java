@@ -30,6 +30,12 @@ public class ComputandoArquivosLoja implements ActionListener{
 	JLabel FindCaracteristicaEspecificaLabel;
 	JLabel EspecificacoesGeraisLabel;
 	
+	FerrosSolda ferro000 = new FerrosSolda("ferro de solda", "Jcd", 149.99, 80, 220, 500, true,	"China", 3, 12345, 456, "controle de temperatura digital");
+	
+	FerrosSolda ferro001 = new FerrosSolda("ferro de solda","Vonder", 60.68, 50, 110, 410, false, "Nicaragua", 6, 12346, 457, "nenhuma");
+
+	
+	
 	public ComputandoArquivosLoja() {
 		// TODO Auto-generated constructor stub
 		int jTelaPrincipalWidth = 720, widthPanel = 700;
@@ -300,18 +306,30 @@ public class ComputandoArquivosLoja implements ActionListener{
 		String orgStr = findText.getText();
 		String resStr = "";
 		
-		FerrosSolda ferro001 = new FerrosSolda("ferro de solda","Vonder", 60.68, 50, 110, 410, false, "Nicaragua", 6, 12346, 457, "nenhuma");
-		
+	
 		if(ae.getActionCommand().equals("FIND")) {	
 			
 			if(orgStr.equalsIgnoreCase(ferro001.getMarca())) {
-				System.out.println("para vonder " + ferro001.toString());
+				System.out.println("busca = " + ferro001.getMarca() + "\n" + ferro001.toString());
 				nomeProdutoLabel.setText("Ferro de solda " + ferro001.getMarca());
 				fotoProdutoLabel.setText("foto vonder");
 				caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
 				precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
 				System.out.println("button used");
+				//System.out.println(ferro001.toString());
+				EspecificacoesGeraisLabel.setFont(new Font("Monospace",Font.PLAIN,20));
+				EspecificacoesGeraisLabel.setText(ferro001.toString());
 				
+			}else if(orgStr.equalsIgnoreCase(ferro000.getMarca())) {
+				System.out.println("busca = " + ferro000.getMarca() + "\n" + ferro000.toString());
+				nomeProdutoLabel.setText("Ferro de solda " + ferro000.getMarca());
+				fotoProdutoLabel.setText("foto vonder");
+				caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro000.getPotencia() + " W");
+				precoProdutoLabel.setText("Preço R$ " + ferro000.getPreco());
+				System.out.println("button used");
+				//System.out.println(ferro000.toString());
+				EspecificacoesGeraisLabel.setFont(new Font("Monospace",Font.PLAIN,20));
+				EspecificacoesGeraisLabel.setText(ferro000.toString());
 			}
 		/*
 			JLabel fotoProdutoLabel;
@@ -323,19 +341,29 @@ public class ComputandoArquivosLoja implements ActionListener{
 			findText.setText(resStr);
 		}else {
 
-			if(ae.getActionCommand().equals("FIND")) {	
-				
 				if(orgStr.equalsIgnoreCase(ferro001.getMarca())) {
-					System.out.println("para vonder " + ferro001.toString());
+					System.out.println("busca =" + ferro001.getMarca() + "\n" + ferro001.toString());
 					nomeProdutoLabel.setText("Ferro de solda " + ferro001.getMarca());
-					fotoProdutoLabel.setText("foto vonder");
+					fotoProdutoLabel.setText("foto " + ferro001.getMarca());
 					caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
 					precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
 					System.out.println("enter clicado");
-					
+					//System.out.println(ferro001.toString());
+					EspecificacoesGeraisLabel.setFont(new Font("Monospace",Font.PLAIN,20));
+					EspecificacoesGeraisLabel.setText(ferro001.toString());
+				}else if(orgStr.equalsIgnoreCase(ferro000.getMarca())) {
+					System.out.println("busca = " + ferro000.getMarca() + "\n" + ferro000.toString());
+					nomeProdutoLabel.setText("Ferro de solda " + ferro000.getMarca());
+					fotoProdutoLabel.setText("foto " + ferro000.getMarca());
+					caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro000.getPotencia() + " W");
+					precoProdutoLabel.setText("Preço R$ " + ferro000.getPreco());
+					System.out.println("button used");
+					//System.out.println(ferro000.toString());
+					EspecificacoesGeraisLabel.setFont(new Font("Monospace",Font.PLAIN,20));
+					EspecificacoesGeraisLabel.setText(ferro000.toString());
 				}
 				findText.setText(resStr);
-			}
+			
 		}
 		
 	}
