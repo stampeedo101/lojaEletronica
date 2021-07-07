@@ -1,2 +1,2 @@
 # LojaEletronica
-catálogo de produtos de uma loja de eletrônica
+electronics store product catalog 
