@@ -20,8 +20,15 @@ public class ComputandoArquivosLoja implements ActionListener{
 	
 	JTextField findText;
 	JButton findButton;
-	JLabel promptLabel,contentsLabel;	
+	JLabel promptLabel,contentsLabel;
+	JLabel findLabel;
 	
+	JLabel nomeProdutoLabel;
+	JLabel fotoProdutoLabel;
+	JLabel caracteristicaImportante00ProdutoLabel;		
+	JLabel precoProdutoLabel;
+	JLabel FindCaracteristicaEspecificaLabel;
+	JLabel EspecificacoesGeraisLabel;
 	
 	public ComputandoArquivosLoja() {
 		// TODO Auto-generated constructor stub
@@ -78,7 +85,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 
 		/* find label */
 		
-		JLabel findLabel = new JLabel();
+		findLabel = new JLabel();
 		findLabel.setBounds(120, 0, 700-110-120, alturaFindPincipal-10);
 		//findLabel.setFont(new Font("Monospace",Font.PLAIN,40));
 		
@@ -116,7 +123,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 		nomeProdutoPanel.setBounds(10, (alturaFindPincipal + espaco), widthPanel, alturaNomeProduto); 
 
 		
-		JLabel nomeProdutoLabel = new JLabel();
+		nomeProdutoLabel = new JLabel();
 		
 		nomeProdutoLabel.setText("Nome e Marca do Produto");
 		nomeProdutoLabel.setForeground(Color.white);
@@ -138,7 +145,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				fotoAltura); 
 
 		
-		JLabel fotoProdutoLabel = new JLabel();
+		fotoProdutoLabel = new JLabel();
 		
 		fotoProdutoLabel.setText("foto do Produto");
 		fotoProdutoLabel.setForeground(Color.white);
@@ -158,7 +165,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				alturaCategoriaImportante); 
 
 		
-		JLabel caracteristicaImportante00ProdutoLabel = new JLabel();
+		caracteristicaImportante00ProdutoLabel = new JLabel();
 		
 		caracteristicaImportante00ProdutoLabel.setText("caracteristica Importante 00");
 		caracteristicaImportante00ProdutoLabel.setForeground(Color.white);
@@ -178,7 +185,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				alturaPreco); 
 
 		
-		JLabel precoProdutoLabel = new JLabel();
+		precoProdutoLabel = new JLabel();
 		
 		precoProdutoLabel.setText("preco");
 		precoProdutoLabel.setForeground(Color.white);
@@ -198,7 +205,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				alturaPreco); 
 
 		
-		JLabel FindCaracteristicaEspecificaLabel = new JLabel();
+		FindCaracteristicaEspecificaLabel = new JLabel();
 		
 		FindCaracteristicaEspecificaLabel.setText("Find caracteristica Especifíca");
 		FindCaracteristicaEspecificaLabel.setForeground(Color.white);
@@ -218,7 +225,7 @@ public class ComputandoArquivosLoja implements ActionListener{
 				alturaPreco); 
 
 		
-		JLabel EspecificacoesGeraisLabel = new JLabel();
+		EspecificacoesGeraisLabel = new JLabel();
 		
 		EspecificacoesGeraisLabel.setText("Caracteristica Gerais");
 		EspecificacoesGeraisLabel.setForeground(Color.white);
@@ -293,23 +300,41 @@ public class ComputandoArquivosLoja implements ActionListener{
 		String orgStr = findText.getText();
 		String resStr = "";
 		
-		FerrosSolda ferro001 = new FerrosSolda("Vonder", 60.68, 50, 110, 410, false, "Nicaragua", 6, 12346, 457, "nenhuma");
+		FerrosSolda ferro001 = new FerrosSolda("ferro de solda","Vonder", 60.68, 50, 110, 410, false, "Nicaragua", 6, 12346, 457, "nenhuma");
 		
 		if(ae.getActionCommand().equals("FIND")) {	
 			
 			if(orgStr.equalsIgnoreCase(ferro001.getMarca())) {
 				System.out.println("para vonder " + ferro001.toString());
+				nomeProdutoLabel.setText("Ferro de solda " + ferro001.getMarca());
+				fotoProdutoLabel.setText("foto vonder");
+				caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
+				precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
+				
 			}
-		
+		/*
+			JLabel fotoProdutoLabel;
+			JLabel caracteristicaImportante00ProdutoLabel;		
+			JLabel precoProdutoLabel;
+			JLabel FindCaracteristicaEspecificaLabel;
+			JLabel EspecificacoesGeraisLabel;*/
 			
 			findText.setText(resStr);
 		}else {
-			for(int i = orgStr.length()-1; i >= 0; i--) {
-				resStr += orgStr.charAt(i);
+
+			if(ae.getActionCommand().equals("FIND")) {	
+				
+				if(orgStr.equalsIgnoreCase(ferro001.getMarca())) {
+					System.out.println("para vonder " + ferro001.toString());
+					nomeProdutoLabel.setText("Ferro de solda " + ferro001.getMarca());
+					fotoProdutoLabel.setText("foto vonder");
+					caracteristicaImportante00ProdutoLabel.setText("Potencia " + ferro001.getPotencia() + " W");
+					precoProdutoLabel.setText("Preço R$ " + ferro001.getPreco());
+					
+				}
 			}
-			System.out.println("ERROR");
-			findText.setText("enter apertado " + resStr);
 		}
+		
 	}
 	
 	void findProduct() {
