@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -16,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-public class ComputandoArquivosLoja implements ActionListener{
+public class ComputandoArquivosLoja extends entradaNovoProduto implements ActionListener{
 	
 	JTextField findText;
 	JButton findButton;
@@ -79,6 +78,16 @@ public class ComputandoArquivosLoja implements ActionListener{
 
 		menuButton.setBackground(Color.GRAY);		
 		menuButton.setBounds(10, 5, 103, 90);
+                
+                menuButton.addActionListener(new ActionListener(){
+                    
+                    @Override
+                    public void actionPerformed(ActionEvent arg0) {
+                        System.out.println("\nmenu foi clicado.");
+                        principalFrame();
+                    }
+                });
+                
 		
 		/* menu icon Menu */
 		
